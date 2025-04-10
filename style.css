@@ -1,32 +1,67 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
 header {
-    background: #333;
+    background: hwb(305 13% 36%); /* Bootstrap primary color */
     color: #fff;
-    padding: 10px 0;
+    padding: 20px 0;
     text-align: center;
 }
 
+h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
 button {
+    background: #0e4a52; /* Bootstrap success color */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
     margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #217c88; /* Darker green on hover */
 }
 
 section {
     padding: 20px;
-    margin: 10px;
+    margin: 10px auto;
+    max-width: 800px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #52b6a0;
 }
 
 .faq-item {
     margin: 10px 0;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.question {
+    cursor: pointer;
+    font-weight: bold;
 }
 
 .answer {
     display: none;
+    padding: 10px 0;
 }
 
 .answer.visible {
@@ -36,4 +71,16 @@ section {
 .dark-theme {
     background-color: #121212;
     color: #f0f0f0;
+}
+
+.dark-theme header {
+    background: #1a1a1a;
+}
+
+.dark-theme button {
+    background: #007BFF;
+}
+
+.dark-theme button:hover {
+    background: #0056b3;
 }

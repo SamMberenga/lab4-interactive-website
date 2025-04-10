@@ -1,6 +1,8 @@
 // Theme Toggle
 document.getElementById("themeToggle")?.addEventListener("click", () => {
     document.body.classList.toggle("dark-theme");
+    const theme = document.body.classList.contains("dark-theme") ? "Dark" : "Light";
+    alert(`Switched to ${theme} Mode`);
 });
 
 // Form Enhancement + Validation
@@ -18,10 +20,11 @@ document.getElementById("contactForm")?.addEventListener("submit", (e) => {
 
 // Fetch API Integration
 document.getElementById("loadUsersBtn")?.addEventListener("click", async () => {
-        try {
+    const userList = document.getElementById("userList");
+    userList.innerHTML = "<li>Loading...</li>"; // Show loading message
+    try {
         const res = await fetch('https://jsonplaceholder.typicode.com/users');
         const users = await res.json();
-        const userList = document.getElementById("userList");
         userList.innerHTML = ""; // Clear the list before adding new users
         users.forEach(user => {
             const li = document.createElement("li");
@@ -30,12 +33,16 @@ document.getElementById("loadUsersBtn")?.addEventListener("click", async () => {
         });
     } catch (err) {
         console.error("Failed to load users:", err);
+        userList.innerHTML = "<li>Failed to load users. Please try again later.</li>";
     }
 });
 
 // Add an Interactive FAQ Component
 document.querySelectorAll(".question").forEach((q) => {
     q.addEventListener("click", () => {
-        q.nextElementSibling.classList.toggle("visible");
+        const answer = q.nextElementSibling;
+        answer.classList.toggle("visible");
+        const isVisible = answer.classList.contains("visible");
+        q.style.fontWeight = isVisible ? "bold" : "normal"; // Change font weight on toggle
     });
 });
